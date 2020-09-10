@@ -7,6 +7,7 @@ from matplotlib import pyplot as plt
 pd.options.display.max_rows = 10
 pd.options.display.float_format = "{:.1f}".format
 
+
 #@title Define the functions that build and train a model
 def build_model(my_learning_rate):
   """Create and compile a simple linear regression model."""
@@ -36,8 +37,8 @@ def train_model(model, df, feature, label, my_epochs,
                       validation_split=my_validation_split)
 
   # Gather the model's trained weight and bias.
-  trained_weight = model.get_weights()[0]
-  trained_bias = model.get_weights()[1]
+  #trained_weight = model.get_weights()[0]
+  #trained_bias = model.get_weights()[1]
 
   # The list of epochs is stored separately from the 
   # rest of history.
@@ -84,9 +85,6 @@ def plot_the_loss_curve(epochs, mae_training, mae_validation):
 
 
 
-
-
-
 train_df = pd.read_csv("https://download.mlcc.google.com/mledu-datasets/california_housing_train.csv")
 test_df = pd.read_csv("https://download.mlcc.google.com/mledu-datasets/california_housing_test.csv")
 
@@ -97,10 +95,6 @@ train_df["median_house_value"] /= scale_factor
 
 # Scale the test set's label
 test_df["median_house_value"] /= scale_factor
-
-
-
-
 
 
 # The following variables are the hyperparameters.
